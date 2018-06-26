@@ -1,0 +1,367 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IHC录入系统 by C.F</title>
+		<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+		<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/ul.css" />
+		<link rel="stylesheet" type="text/css" href="static/cf.css" />
+		<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+		<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.page.js"></script>
+		<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script>
+		<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
+		<script type="text/javascript" src="static/cf.js"></script>
+	</head>
+<body>
+<header class="navbar-wrapper">
+	<div class="navbar navbar-fixed-top">
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="index.html">石井表记精密机械(苏州)有限公司后台管理系统</a>
+			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+			<ul class="cl">
+				<li>超级管理员</li>
+				<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<ul class="dropDown-menu menu radius box-shadow">
+						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+						<li><a href="#">切换账户</a></li>
+						<li><a href="#">退出</a></li>
+					</ul>
+				</li>
+				<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
+					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+<aside class="Hui-aside">
+	<div class="menu_dropdown bk_2">
+		<dl id="menu-article">
+			<dt><i class="Hui-iconfont">&#xe616;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="sell_order_list.html">受注列表</a></li>
+					<li><a href="sell_order_add.html">新增受注</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-picture">
+			<dt><i class="Hui-iconfont">&#xe645;</i> 采购管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="buy_ppo_list.html">发注列表</a></li>
+					<li><a href="buy_ppo_add.html">新增发注</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-picture">
+			<dt><i class="Hui-iconfont">&#xe644;</i> 库存管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="stock_list.html">库存列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-comments">
+			<dt><i class="Hui-iconfont">&#xe683;</i> 查询管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="order_list.html">订单查询</a></li>
+					<li><a href="item_list.html">产品查询</a></li>
+					<li><a href="customer_list.html">客户查询</a></li>
+					<li><a href="supplier_list.html">供应商查询</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe607;</i> 新增管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="supplier_add.html">供应商新增</a></li>
+					<li><a href="item_add.html">产品新增</a></li>
+					<li><a href="customer_add.html">客户新增</a></li>
+					<li><a href="customer_price_add.html">客户价格新增</a></li>	
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe62d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="user_list.html" title="会员列表">用户列表</a></li>
+					<li><a href="user_add.html" title="会员列表">用户列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-tongji">
+			<dt><i class="Hui-iconfont">&#xe61a;</i> 数据统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="sell_statistics.html">受注统计</a></li>
+					<li><a href="buy_statistics.html">发注统计</a></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+		<span class="c-gray en">&gt;</span>
+		采购管理
+		<span class="c-gray en">&gt;</span>
+		发注列表
+	</nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+<!-- 			<div class="text-c">
+				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
+				-
+				<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
+				<input type="text" name="" id="" placeholder="客户" style="width:250px" class="input-text">
+				<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 订单查询</button>
+			</div> -->
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<nav class="mynav">
+  					<ul>
+    				<li><a onclick="order()">发注记录</a></li>
+    				<li><a onclick="invoice()">待收发票</a></li>
+    				<li><a onclick="payment()">待付款项</a></li>
+    				<li><a onclick="paylog()">付款记录</a></li>
+  					</ul>
+  					<span class="target"></span>
+				</nav>	
+			</div>
+			<div class="mt-20">
+			<table class="table table-border table-bordered table-bg table-hover table-sort">
+				<thead>
+<!-- 					<tr class="text-c">
+						<th width="25"><input type="checkbox" name="" value=""></th>	
+						<th width="100">发注日</th>
+						<th width="100">回复交期</th>
+						<th width="100">客户交期</th>
+						<th width="100">发注单号</th>
+						<th width="200">供应商</th>
+						<th width="100">产品</th>
+						<th width="100">型号</th>
+						<th width="150">品目番号</th>
+						<th width="40">数量</th>
+						<th width="100">单价</th>
+					</tr> -->
+						<tr class="text-c">
+						<th><input type="checkbox" name="" value=""></th>	
+						<th>回复交期</th>
+						<th>发注单号</th>
+						<th>供应商</th>
+						<th>产品</th>
+						<th>型号</th>
+						<th>品目番号</th>
+						<th>数量</th>
+						<th>单价</th>
+						<th id = "c1">客户</th>
+						<th id = "c2">客户交期</th>
+					</tr>
+				</thead>
+				<tbody id = "biao">
+				</tbody>
+			</table>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<span class="l">
+				<a class="btn btn-primary radius" id = "stock">入库</a>
+				<a class="btn btn-primary radius" id = "invoice">收票</a>
+				<a class="btn btn-primary radius" id = "payment">付款</a>
+				<a class="btn btn-primary radius" id= "ppo">生成发注单</a>
+				</span>
+				<div class="text-r">
+				<span>
+				<a class="btn btn-danger radius" id= "unppo">取消订单</a>
+				</span>
+				</div>
+			</div>
+		</article>
+	</div>
+</section>
+</body>
+	<script type="text/javascript">
+
+		function order(){
+			$.get('buy_ppo_list_get_order.php',{'customer':'cf'},function(data){
+				$("#biao").html(data);
+			});
+			$("#stock").attr("class","btn btn-secondary radius");
+			$("#invoice").attr("class","btn btn-primary radius disabled");
+			$("#payment").attr("class","btn btn-primary radius disabled");
+			$("#ppo").attr("class","btn btn-primary radius");
+			$("#unppo").attr("class","btn btn-danger radius");
+			$("#c1").html("客户");
+			$("#c2").html("客户交期");
+		}
+
+		function invoice(){
+			$.get('buy_ppo_list_get_invoice.php',{'customer':'cf'},function(data){
+				$("#biao").html(data);
+			});
+			$("#stock").attr("class","btn btn-secondary radius disabled");
+			$("#invoice").attr("class","btn btn-primary radius");
+			$("#payment").attr("class","btn btn-primary radius disabled");
+			$("#ppo").attr("class","btn btn-primary radius disabled");
+			$("#unppo").attr("class","btn btn-primary radius disabled");
+			$("#c1").html("客户");
+			$("#c2").html("入库时间");
+		}
+
+		function payment(){
+			$.get('buy_ppo_list_get_payment.php',{'customer':'cf'},function(data){
+				$("#biao").html(data);
+			});
+			$("#stock").attr("class","btn btn-secondary radius disabled");
+			$("#invoice").attr("class","btn btn-primary radius disabled");
+			$("#payment").attr("class","btn btn-primary radius");
+			$("#ppo").attr("class","btn btn-primary radius disabled");
+			$("#unppo").attr("class","btn btn-primary radius disabled");
+			$("#c1").html("发票号");
+			$("#c2").html("收票时间");
+		}
+
+		function paylog(){
+			$.get('buy_ppo_list_get_paylog.php',{'customer':'cf'},function(data){
+				$("#biao").html(data);
+			});
+			$("#stock").attr("class","btn btn-secondary radius disabled");
+			$("#invoice").attr("class","btn btn-primary radius disabled");
+			$("#payment").attr("class","btn btn-primary radius disabled");
+			$("#ppo").attr("class","btn btn-primary radius disabled");
+			$("#unppo").attr("class","btn btn-primary radius disabled");
+			$("#c1").html("发票号");
+			$("#c2").html("付款时间");
+		}
+
+		//插入发注数据
+		window.onload = function () {
+			$.get('buy_ppo_list_get_order.php',{'customer':'cf'},function(data){
+				$("#biao").html(data);
+			});
+			$("#stock").attr("class","btn btn-secondary radius");
+			$("#invoice").attr("class","btn btn-primary radius disabled");
+			$("#payment").attr("class","btn btn-primary radius disabled");
+			$("#ppo").attr("class","btn btn-primary radius");
+			$("#unppo").attr("class","btn btn-danger radius");
+			$("#c1").html("客户");
+			$("#c2").html("客户交期");
+		};
+		
+		//出库并修改ppo_storage_time为当前时间
+		$("#stock").click(function(){
+			var chukuarray = [];
+            $.each($('input:checkbox:checked'),function(){
+				if ($(this).val()!="") {
+					chukuarray.push({"ppo_number":$(this).attr("name"),"id":$(this).val()});
+				};
+            });
+			var url = "buy_ppo_list_set_stock.php"
+			var success = function(response){
+				alert(response.errmsg);
+				$.get('buy_ppo_list_get_order.php',{'customer':'cf'},function(data){
+					$("#biao").html(data);
+				});
+			};
+			$.post(url,{data:JSON.stringify(chukuarray)},success,"json");
+        });
+
+        //收票并修改ppo_invoice_time为当前时间，并记录发票号
+		$("#invoice").click(function(){
+
+			var ppo_invoice = prompt("请输入Invoice号码！","CHP-");
+
+			var chukuarray = [];
+            $.each($('input:checkbox:checked'),function(){
+				if ($(this).val()!="") {
+					chukuarray.push({"ppo_number":$(this).attr("name"),"id":$(this).val(),"ppo_invoice":ppo_invoice});
+				};
+            });
+			var url = "buy_ppo_list_set_invoice.php"
+			var success = function(response){
+				alert(response.errmsg);
+				$.get('buy_ppo_list_get_invoice.php',{'customer':'cf'},function(data){
+					$("#biao").html(data);
+				});
+			};
+			$.post(url,{data:JSON.stringify(chukuarray)},success,"json");
+        });
+
+        //付款并修改payment为当前时间
+		$("#payment").click(function(){
+			var chukuarray = [];
+            $.each($('input:checkbox:checked'),function(){
+				if ($(this).val()!="") {
+					chukuarray.push({"ppo_number":$(this).attr("name"),"id":$(this).val()});
+				};
+            });
+			var url = "buy_ppo_list_set_payment.php"
+			var success = function(response){
+				alert(response.errmsg);
+				$.get('buy_ppo_list_get_payment.php',{'customer':'cf'},function(data){
+					$("#biao").html(data);
+				});
+			};
+			$.post(url,{data:JSON.stringify(chukuarray)},success,"json");
+        });
+
+		//取消订单
+		$("#unppo").click(function(){
+			var r=confirm("确认是否需要删除此条数据！");
+			if (r==true) {
+  				var chukuarray = [];
+            	$.each($('input:checkbox:checked'),function(){
+					if ($(this).val()!="") {
+						chukuarray.push({"ppo_number":$(this).attr("name"),"id":$(this).val()});
+					};
+            	});
+				var url = "buy_ppo_list_delete.php"
+				var success = function(response){
+					alert(response.errmsg);
+					$.get('buy_ppo_list_get_order.php',{'customer':'cf'},function(data){
+						$("#biao").html(data);
+					});
+				};
+				$.post(url,{data:JSON.stringify(chukuarray)},success,"json");
+  			};
+        });
+
+       	//传值并判断选择客户是否正确，并转入送货单
+		$("#ppo").click(function(){
+			var chukuarray = [];
+            $.each($('input:checkbox:checked'),function(){
+				if ($(this).val()!="") {
+					chukuarray.push({"ppo_number":$(this).attr("name"),"id":$(this).val()});
+				};
+            });
+            var url = "buy_ppo_add_set_order.php"
+			var success = function(response){
+				if(response.msg == 1){
+					window.location.href = 'buy_ppo_add_get_order_j.php';
+				}else if(response.msg == 2){
+					window.location.href = 'buy_ppo_add_get_order_c.php'; 
+				}else{
+					alert('请选择正确的公司');
+				};
+			};
+			$.post(url,{data:JSON.stringify(chukuarray)},success,"json");
+        });
+
+	</script>
+</html>

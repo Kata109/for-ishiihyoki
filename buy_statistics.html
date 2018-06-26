@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IHC录入系统 by C.F</title>
+		<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+		<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/ul.css" />
+		<link rel="stylesheet" type="text/css" href="static/cf.css" />
+		<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+		<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.page.js"></script>
+		<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script>
+		<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
+		<script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="static/cf.js"></script>
+	</head>
+<body>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="mt-20">
+			<table class="table table-border table-bordered table-bg table-hover table-sort">
+				<thead>
+					<tr class="text-l">
+						<th colspan="15">2018年受注</th>
+					</tr>
+				</thead>
+
+				<tbody class="text-c">
+					<tr><td>総計</td><td></td><td>1月</td><td>2月</td><td>3月</td><td>4月</td><td>5月</td><td>6月</td><td>7月</td><td>8月</td><td>9月</td><td>10月</td><td>11月</td><td>12月</td><td>合計</td></tr>
+					<tr><td>機械計</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td>部品計</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td>修理計</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td>インクジェット</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr class="warning"><td>計</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td  colspan="15"></td></tr>
+					<tr><td rowspan="2">IHC</td><td></td><td>1月</td><td>2月</td><td>3月</td><td>4月</td><td>5月</td><td>6月</td><td>7月</td><td>8月</td><td>9月</td><td>10月</td><td>11月</td><td>12月</td><td>合計</td></tr><tr><td>顾客名</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td><td>金额</td></tr>
+					<div id="ihc-M-JC"></div>
+				</tbody>
+			</table>
+			</div>
+		</article>
+	</div>
+</section>
+</body>
+	<script type="text/javascript">
+		$("#search").click(function(){
+			$.post('sell_statistics.php',{"jp":$("#jp").val(),"usa":$("#usa").val(),"logmin":$("#logmin").val(),"logmax":$("#logmax").val()},function(data){
+				$("#biao").html(data);
+			});
+		});
+	</script>
+</html>

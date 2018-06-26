@@ -1,0 +1,210 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IHC录入系统 by C.F</title>
+		<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+		<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+		<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+		<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+		<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
+		<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.page.js"></script> 
+	</head>
+<body>
+<header class="navbar-wrapper">
+	<div class="navbar navbar-fixed-top">
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="index.html">石井表记精密机械(苏州)有限公司后台管理系统</a>
+			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+			<ul class="cl">
+				<li>超级管理员</li>
+				<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<ul class="dropDown-menu menu radius box-shadow">
+						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+						<li><a href="#">切换账户</a></li>
+						<li><a href="#">退出</a></li>
+					</ul>
+				</li>
+				<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
+					<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
+						<ul class="dropDown-menu menu radius box-shadow">
+							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+<aside class="Hui-aside">
+	<div class="menu_dropdown bk_2">
+		<dl id="menu-article">
+			<dt><i class="Hui-iconfont">&#xe616;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="sell_order_list.html">受注列表</a></li>
+					<li><a href="sell_order_add.html">新增受注</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-picture">
+			<dt><i class="Hui-iconfont">&#xe645;</i> 采购管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="buy_ppo_list.html">发注列表</a></li>
+					<li><a href="buy_ppo_add.html">新增发注</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-picture">
+			<dt><i class="Hui-iconfont">&#xe644;</i> 库存管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="stock_list.html">库存列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-comments">
+			<dt><i class="Hui-iconfont">&#xe683;</i> 查询管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="order_list.html">订单查询</a></li>
+					<li><a href="item_list.html">产品查询</a></li>
+					<li><a href="customer_list.html">客户查询</a></li>
+					<li><a href="supplier_list.html">供应商查询</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe607;</i> 新增管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="supplier_add.html">供应商新增</a></li>
+					<li><a href="item_add.html">产品新增</a></li>
+					<li><a href="customer_add.html">客户新增</a></li>
+					<li><a href="customer_price_add.html">客户价格新增</a></li>	
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe62d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="user_list.html" title="会员列表">用户列表</a></li>
+					<li><a href="user_add.html" title="会员列表">用户列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-tongji">
+			<dt><i class="Hui-iconfont">&#xe61a;</i> 数据统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a href="sell_statistics.html">受注统计</a></li>
+					<li><a href="buy_statistics.html">发注统计</a></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+		<span class="c-gray en">&gt;</span>
+		新增管理
+		<span class="c-gray en">&gt;</span>
+		客户新增
+	</nav>
+		<article class="page-container">
+		<form class="form form-horizontal" action="customer_add.php" method="post">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">客户全称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" name="customer" autocomplete="off">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">简称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" name="nameA" autocomplete="off">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">账期：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<span class="select-box">
+				<select name="dayNet" class="select">
+					<option value="0">预付</option>
+					<option value="30">30天</option>
+					<option value="60">60天</option>
+					<option value="90">90天</option>
+					<option value="120">120天</option>
+				</select>
+				</span>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">联系人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" name="contacts" autocomplete="off">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">地址：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" name="address" autocomplete="off">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">电话：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" name="tel" autocomplete="off">
+			</div>
+		</div>
+				<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">收货人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" name="consignee" autocomplete="off">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">收货人地址：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" name="consignee_address" autocomplete="off">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">收货人电话：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" name="consignee_tel" autocomplete="off">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">区域：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<span class="select-box">
+				<select name="area" class="select">
+					<option value="IHC--C">IHC-中</option>
+					<option value="IHC--J">IHC-日</option>
+					<option value="IHS--C">IHS-中</option>
+					<option value="IHS--J">IHS-日</option>
+				</select>
+				</span>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button id="save" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont"></i>保存并提交</button>
+			</div>
+		</div>
+		</form>
+		</article>
+	</section>	
+</body>
+</html>
